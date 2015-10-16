@@ -192,13 +192,7 @@ namespace GKS3_UI
             {
                 sortedGroup = new Dictionary<List<int>, string>(sortedGroup.OrderByDescending(z => z.Value.Length).ToDictionary(z => z.Key, z => z.Value));
                 sortedList = sortedGroup.ToList();
-                if (sortedGroup.Values.ToList().Count > 1 && sortedGroup.Values.ToList()[0].Length > sortedGroup.Values.ToList()[1].Length)
-                {
-                    returnGroups.Add(sortedList[0]);
-                    sortedList.RemoveAt(0);
-                    sortedGroup = sortedList.ToDictionary(z => z.Key, z => z.Value);
-                }
-                else if (sortedGroup.Count > 1)
+                if (sortedGroup.Count > 1)
                 {
                     int sameLength = sortedGroup.Values.Count(z => z.Length == sortedGroup.Values.ToList()[0].Length);
                     int max = 0;
